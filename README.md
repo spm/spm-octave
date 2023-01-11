@@ -4,7 +4,7 @@ More details on the [SPM wiki](https://en.wikibooks.org/wiki/SPM/Octave).
 
 SPM and its patch can be installed for Octave with the following script:
 
-```
+```matlab
 %% Store current working directory
 cwd = pwd;
 %% Download SPM12 r7771
