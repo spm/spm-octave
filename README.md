@@ -2,7 +2,7 @@
 
 More details on the [SPM wiki](https://en.wikibooks.org/wiki/SPM/Octave).
 
-[SPM](https://www.fil.ion.ucl.ac.uk/spm/) and its patch can be installed for [Octave](https://octave.org/) using the following script:
+A patched [SPM](https://www.fil.ion.ucl.ac.uk/spm/) can be installed on [Octave](https://octave.org/) using the following script:
 
 ```matlab
 %% Store current working directory
@@ -27,3 +27,8 @@ cd (cwd);
 %% Start SPM12
 spm
 ```
+
+The patches contain implementations of:
+* `fcnchk.m`: undocumented function
+* `rng.m`: function introduced in [Octave 7.1](https://octave.org/NEWS-7.html)
+* `gui_mainfcn.m`: undocumented function introduced in [Octave 6.1](https://octave.org/NEWS-6.1.html)
