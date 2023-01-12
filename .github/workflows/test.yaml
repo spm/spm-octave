@@ -1,0 +1,38 @@
+name: Octave Tests
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Install GNU Octave
+        run: |
+          sudo apt-get update && sudo apt-get install -y \
+            octave liboctave-dev && \
+          octave --version
+
+      - name: Run tests
+        run: >
+          octave --no-gui --no-window-system --silent --eval '
+          cwd = pwd;
+          unzip ("https://github.com/spm/spm12/archive/r7771.zip", cwd);
+          urlwrite ("https://raw.githubusercontent.com/spm/spm-octave/main/spm12_r7771.patch", "spm12_r7771.patch");
+          system ("patch -p3 -d spm12-r7771 < spm12_r7771.patch");
+          cd (fullfile (cwd, "spm12-r7771", "src"));
+          system ("make PLATFORM=octave");
+          system ("make PLATFORM=octave install");
+          addpath (fullfile (cwd, "spm12-r7771"));
+          cd (cwd);
+          spm("defaults","fmri");
+          spm_jobman("initcfg");
+          spm("Quit");
+          '
