@@ -892,3 +892,12 @@ diff -u0 -rN /opt/spm12/rng.m /opt/spm12/rng.m
 +    error ("This type of random number generator is unknown");
 +  endif
 +endfunction
+diff -u0 -rN /opt/spm12/toolbox/Shoot/spm_shoot_greens.m /opt/spm12/toolbox/Shoot/spm_shoot_greens.m
+--- /opt/spm12/toolbox/Shoot/spm_shoot_greens.m
++++ /opt/spm12/toolbox/Shoot/spm_shoot_greens.m
+@@ -103 +103 @@
+-            v(:,:,:,i) = ifftn(F.*fftn(m(:,:,:,i))./prm(i)^2,'symmetric');
++            v(:,:,:,i) = real(ifftn(F.*fftn(m(:,:,:,i))./prm(i)^2));
+@@ -116 +116 @@
+-            v(:,:,:,j) = ifftn(a,'symmetric');
++            v(:,:,:,j) = real(ifftn(a));
