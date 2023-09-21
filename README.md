@@ -1,6 +1,6 @@
 # SPM Patches for Octave
 
-More details on the [SPM wiki](https://en.wikibooks.org/wiki/SPM/Octave).
+More details on the [SPM documentation](https://www.fil.ion.ucl.ac.uk/spm/docs/installation/octave/).
 
 A patched [SPM](https://www.fil.ion.ucl.ac.uk/spm/) can be installed on [Octave](https://octave.org/) using the following script:
 
